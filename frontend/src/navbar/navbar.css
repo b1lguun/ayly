@@ -1,0 +1,37 @@
+.navigation {
+    width: 100vw;
+}
+
+.navbar {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar__link {
+  color: var(--color-white);
+}
+
+.nav-left {
+  width: 40vw;
+  display: flex;
+  cursor: pointer;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #ffffff;
+}
+
+.logo {
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
