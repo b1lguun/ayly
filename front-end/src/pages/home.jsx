@@ -1,6 +1,5 @@
 import "./home.scss";
 import React, { useEffect, useState } from "react";
-import AnimatedPage from "../animatedpage";
 import Navbar from "../navbar/navbar";
 
 export function Home({ offset }) {
@@ -46,7 +45,6 @@ export function Home({ offset }) {
   }, []);
 
   return (
-    <AnimatedPage>
       <div className="home">
         <Navbar offset={offset} />
         <div className="home-container">
@@ -80,7 +78,6 @@ export function Home({ offset }) {
           </div>
         </div>
       </div>
-    </AnimatedPage>
   );
 }
 

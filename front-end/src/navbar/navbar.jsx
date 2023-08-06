@@ -1,7 +1,6 @@
 import "./navbar.scss";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import AnimatedPage from "../animatedpage";
 
 export function Navbar({ offset }) {
   const navigate = useNavigate();
@@ -23,7 +22,6 @@ export function Navbar({ offset }) {
   }, []);
 
   return (
-    <AnimatedPage>
       <div className="navigation">
         <div className="container">
           <div
@@ -53,7 +51,6 @@ export function Navbar({ offset }) {
           </div>
         </div>
       </div>
-    </AnimatedPage>
   );
 }
 
