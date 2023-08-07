@@ -1,20 +1,20 @@
-import "./App.css";
-import Navbar from "./navbar/navbar";
-import { React, useState, useEffect } from "react";
-
+import "./App.css"
+import React, { useState, useEffect } from "react"
+import { Navbar } from "./navbar/navbar"
 function App() {
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState(0)
   useEffect(() => {
-    const onScroll = () => setOffset(window.pageYOffset);
-    window.removeEventListener("scroll", onScroll);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    const onScroll = () => setOffset(window.pageYOffset)
+    window.removeEventListener("scroll", onScroll)
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
   return (
     <div className="app">
       <Navbar offset={offset} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

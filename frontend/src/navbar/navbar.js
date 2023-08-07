@@ -1,36 +1,36 @@
-import "./navbar.css";
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import AnimatedPage from "../animatedpage";
+import "./navbar.css"
+import React, { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import Home from "../home/home"
 
-export function Navbar({ offset }) {
-  const navigate = useNavigate();
+export const Navbar = ({ offset }) => {
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.pageYOffset > 100) {
-        document.body.style.textEmphasisColor = "#0d2a16";
+        document.body.style.textEmphasisColor = "#0d2a16"
       } else {
-        document.body.style.textEmphasisColor = "#ffffff";
+        document.body.style.textEmphasisColor = "#ffffff"
       }
-    };
+    }
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
 
   return (
-    <AnimatedPage>
+    <>
       <div className="navigation">
         <div className="container">
           <div
             className="navbar"
             style={{
               color: offset > 100 ? "#ffffff" : "#125234",
-              backgroundColor: offset > 100 ? "#125234" : "",
+              lor: offset > 100 ? "#125234" : "",
               transitionDuration: "1s",
             }}
           >
@@ -52,9 +52,8 @@ export function Navbar({ offset }) {
             </div>
           </div>
         </div>
+        <Home />
       </div>
-    </AnimatedPage>
-  );
+    </>
+  )
 }
-
-export default Navbar;
