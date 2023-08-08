@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-}
+  }
 .home div {
     display: flex;
 }
@@ -19,15 +19,37 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-}
-.home-container-left {
+  
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .home-container-left {
     color: white;
     display: flex;
     width: 25vw;
     flex-direction: column;
     height: 35vh;
     justify-content: space-around;
-}
+    
+    // Hide on phones and tablets
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+    h1 {
+        display: none;
+    }
+    p {
+        display: none;
+    }
+    a {
+        display: none;
+    }
+
+  }
+  
+  
 .home-container-left a {
     text-decoration: none!important;
     text-align: center;
@@ -47,18 +69,26 @@
 }
 .home-container-right {
     width: 40vw;
-    height: 45vh;
     display: flex;
     flex-direction: column;
     background-color: rgb(219, 219, 219);
-    opacity: 0.8;
     border-radius: 1vw;
-    padding: 1vw;
+    gap: 1vw;
+    padding: 3vw 1vw;
+    @media screen and (max-width: 768px) {
+    
+        width: 80vw;
+       
+                }
+    
+     
+  
 }
 .right-from {
     padding: 1vw;
     display: flex;
     flex-direction: column;
+    gap : 10px
 }
 .right-from p {
     opacity: 0.7;
@@ -66,11 +96,11 @@
 .right-from {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem; /* Optional margin to separate from other elements */
+    margin-bottom: 1rem; 
   }
   
   .label {
-    padding-right: 0.5rem; /* Add padding to the right of the label */
+    padding-right: 0.5rem;
   }
   
   .right-from input {
@@ -96,10 +126,16 @@
     opacity: 1;
     border: none;
     height: 8vh;
-    font-size: 2vw;
+    font-size: larger;
+    text-align: center;
     background-color: rgb(18, 82, 52);
     margin-top: 2vh;
     border-radius: 600px;
     padding-left: 1rem;
     width: 50%;
+
   }
+  .gen-button {
+    text-decoration: none;
+  }
+  

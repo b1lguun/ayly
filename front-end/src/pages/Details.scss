@@ -1,0 +1,13 @@
+.collection-container {
+    gap: 6vh;
+}
+.container-image {
+    width: 57vw;
+    height: 60vh;
+    background-size: cover;
+  
+    @media screen and (max-width: 480px) {
+      width: 80vw; 
+      height: 30vh;
+    }
+  }

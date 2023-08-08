@@ -1,9 +1,13 @@
 import "./navbar.scss";
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-export function Navbar({ offset }) {
+export function Navbar({ offset, children }) {
   const navigate = useNavigate();
+  const location = useLocation()
+  const BlackHeaderOnRoutes = ["/:province"]
+
+  const shouldBlackRouter = BlackHeaderOnRoutes.includes(location.pathname)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,14 +26,18 @@ export function Navbar({ offset }) {
   }, []);
 
   return (
+    <>
       <div className="navigation">
         <div className="container">
           <div
             className="navbar"
-            style={{
+            style={shouldBlackRouter ? {
               color: offset > 100 ? "#ffffff" : "#125234",
               backgroundColor: offset > 100 ? "#125234" : "",
               transitionDuration: "1s",
+            }: {
+              color:  "#ffffff",
+              backgroundColor:  "#125234"
             }}
           >
             <h1 className="logo" onClick={() => navigate("/")}>
@@ -37,20 +45,21 @@ export function Navbar({ offset }) {
             </h1>
             <div
               className="nav-left"
-              style={{
+              style={shouldBlackRouter ? {
                 color: offset > 100 ? "#ffffff" : "#125234",
+                transitionDuration: "1s",
+              } : {
+                color: "white",
                 transitionDuration: "1s",
               }}
             >
-              <p onClick={() => navigate("/informations")}>Search</p>
-              <p onClick={() => navigate("/myths")}>Myths</p>
-              <p onClick={() => navigate("/resorts")}>Resorts</p>
-              <p onClick={() => navigate("/lan")}>Language switch</p>
-              <p onClick={() => navigate("/about-us")}>About Us</p>
+            <p>Your travel web guide</p>
             </div>
           </div>
         </div>
+        {children}
       </div>
+    </>
   );
 }
 

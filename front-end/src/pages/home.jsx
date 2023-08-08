@@ -1,53 +1,12 @@
-import "./home.scss"
-import React, { useEffect, useState } from "react"
-import Navbar from "../navbar/navbar"
-import { Link } from "react-router-dom"
-
+import "./home.scss";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { provinceData } from "../utils/data";
 export function Home({ offset }) {
-  const [val, setVal] = useState("")
-  const data = [
-    "Улаанбаатар",
-    "Архангай",
-    "Баян-Өлгий",
-    "Баянхонгор",
-    "Булган",
-    "Говь-Алтай",
-    "Говьсүмбэр",
-    "Дархан-Уул",
-    "Дорноговь",
-    "Дорнод",
-    "Дундговь",
-    "Завхан",
-    "Орхон",
-    "Өвөрхангай",
-    "Өмнөговь",
-    "Сүхбаатар",
-    "Сэлэнгэ",
-    "Төв",
-    "Увс",
-    "Ховд",
-    "Хөвсгөл",
-    "Хэнтий",
-  ]
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.pageYOffset > 100) {
-        document.body.style.textEmphasisColor = "#0d2a16"
-      } else {
-        document.body.style.textEmphasisColor = "#ffffff"
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
+  const [val, setVal] = useState("");
 
   return (
     <div className="home">
-      <Navbar offset={offset} />
       <div className="home-container">
         <div className="home-container-left">
           <h1>Таны аяллын хөтөч</h1>
@@ -69,22 +28,23 @@ export function Home({ offset }) {
             <input
               list="data"
               onChange={(e) => setVal(e.target.value)}
-              placeholder="Хаашаа аялахаар төлөвлөж байгаагаа оруулна уу."
+              placeholder="Аялахаар төлөвлөж буй аймагаа сонгоно уу."
             />
             <datalist id="data">
-              {data.map((op) => (
-                <option>{op}</option>
+              {Object.keys(provinceData).map((op) => (
+                <option onClick={() => setVal(op)}>{op}</option>
               ))}
             </datalist>
           </div>
-          <div className="gen-but">
-            <Link to="bayaulgi">generate</Link>
-            <button className="generate">Generate</button>
-          </div>
+          <Link className="gen-button" to={val && val}>
+            <div className="gen-but">
+              <button className="generate">Generate</button>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

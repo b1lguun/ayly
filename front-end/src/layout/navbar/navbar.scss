@@ -1,11 +1,12 @@
 .navigation {
     width: 100vw;
-    z-index: 10002;
+    z-index: 1004;
 }
 
 .navbar {
     width: 100vw;
     display: flex;
+    z-index: 11;
     justify-content: space-around;
     align-items: center;
     position: fixed;
@@ -24,6 +25,7 @@
   justify-content: space-evenly;
   align-items: center;
   color: #ffffff;
+  font-size: larger;
 }
 
 .logo {
